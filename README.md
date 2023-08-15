@@ -30,6 +30,39 @@ public class SimpleBookController {
 
 We annonated the request handling method with @ResponseBody. This annotation enables automatic serialization of the return object into the HttpResponse.
 
+## 3. Spring MVC @RestController
+@RestController is a specialized version of the controller. It includes the @Controller and @ResponseBody annotations, and as a result, simplifies the controller implementation:
+
+```java
+@RestController
+@RequestMapping("books-rest")
+public class SimpleBooksController {
+  @GetMapping("/{id}", produces = "application/json")
+  public Book getBook(@Path Variable int id){
+    return findBookById(id);
+  }
+  private Book findBookById(int id){
+    // ...
+  }
+}
+```
+
+Here, the controller is annotated with the @RestController annotation; therefore, the @ResponseBody isn't required.
+
+Every request handling method of the controller class automatically serializes return objects into ***HttpResponse***
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
