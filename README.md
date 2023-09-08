@@ -38,7 +38,7 @@ We annonated the request handling method with @ResponseBody. This annotation ena
 @RequestMapping("books-rest")
 public class SimpleBooksController {
   @GetMapping("/{id}", produces = "application/json")
-  public Book getBook(@Path Variable int id){
+  public Book getBook(@PathVariable int id){
     return findBookById(id);
   }
   private Book findBookById(int id){
